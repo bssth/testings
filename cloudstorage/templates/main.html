@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Облачное хранилище</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <style>
+        body {
+            padding-top: 5rem;
+        }
+        .file-one {
+            text-align: center;
+            width: 100%;
+            height: 15rem;
+            word-break: break-word;
+            margin-bottom: 1rem;
+        }
+        .icon-file {
+            font-size: 5rem;
+        }
+        .user-info {
+            color: white;
+        }
+        .control-btn {
+            margin: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">
+            Облачное хранилище
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar-top">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Главная <span class="sr-only">(текущая)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Выйти</a>
+                </li>
+            </ul>
+            <div class="my-2 my-lg-0 user-info">
+                <i class="fa fa-user"></i>
+                {{ user.username }}
+            </div>
+        </div>
+    </nav>
+
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-9">
+                <div class="row">
+                    {% for file in files %}
+                        <div class="col-3">
+                            <div class="card file-one">
+                                {% if file.is_folder == 1 %}
+                                    <i class="fa icon-file fa-folder mt-2"></i>
+                                {% else %}
+                                    <i class="fa icon-file fa-file mt-2"></i>
+                                {% endif %}
+
+                                <h5 class="card-title mt-3">
+                                    {{ file.original }}
+                                </h5>
+
+                                <button class="btn btn-sm btn-secondary control-btn">
+                                    Управление
+                                </button>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/upload" method="POST" enctype="multipart/form-data">
+                            <h6 class="card-title">
+                                Загрузить файл
+                                <small>(до 10 МБ)</small>
+                            </h6>
+                            <p class="card-text">
+                                <input type="file" name="file">
+                            </p>
+                            <button type="submit" class="btn btn-sm btn-info">
+                                <i class="fa fa-upload"></i>
+                                Отправить
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
