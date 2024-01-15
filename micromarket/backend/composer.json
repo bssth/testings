@@ -1,0 +1,33 @@
+{
+    "name": "mikechip/micromarket",
+    "description": "Just a simple market. Test task",
+    "type": "project",
+    "license": "UNLICENSED",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "Framework\\": "framework/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Boris Stelmakh",
+            "email": "mikechip@pm.me"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require-dev": {
+        "vkcom/noverify": "^0.5.1"
+    },
+    "config": {
+        "platform": {
+            "php": "7.4"
+        }
+    },
+    "require": {
+        "ext-pdo": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "ext-redis": "^5.3"
+    }
+}
