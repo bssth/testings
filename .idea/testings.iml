@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/cloudstorage/src" isTestSource="false" packagePrefix="Mike4ip\Cloud\" />
+      <sourceFolder url="file://$MODULE_DIR$/micromarket/backend/framework" isTestSource="false" packagePrefix="Framework\" />
+      <sourceFolder url="file://$MODULE_DIR$/micromarket/backend/src" isTestSource="false" packagePrefix="App\" />
+      <sourceFolder url="file://$MODULE_DIR$/strfind/src" isTestSource="false" packagePrefix="Mike4ip\Strfind\" />
+      <sourceFolder url="file://$MODULE_DIR$/strfind/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/usstudiotest/src" isTestSource="false" packagePrefix="App\" />
+      <sourceFolder url="file://$MODULE_DIR$/usstudiotest/tests" isTestSource="true" packagePrefix="App\Tests\" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
