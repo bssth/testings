@@ -1,0 +1,5 @@
+requirements:
+    mime:
+      - 'application/json'
+      - 'text/plain'
+    max_size: 1024
