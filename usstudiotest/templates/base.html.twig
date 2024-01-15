@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Курс валют</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous"
+        >
+        <style>
+            body {
+              padding-top: 5rem;
+            }
+            .content {
+              padding: 3rem 1.5rem;
+              text-align: center;
+            }
+            .date-picker {
+                padding: 1rem;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <a class="navbar-brand" href="#">Курс валют</a>
+        </nav>
+
+        <main role="main" class="container">
+            <div class="content">
+                <div class="row">
+                    <div class="card date-picker col-12 mb-2">
+                        <form action="" method="GET">
+                            <div class="row">
+                                <div class="col-4">
+                                    <b>Показать курс на следующую дату</b>:
+                                </div>
+                                <div class="col-6">
+                                    <input type="date" autocomplete="off" name="date" value="{{ date }}" class="form-control" />
+                                </div>
+                                <div class="col-2">
+                                    <button type="submit" class="btn btn-primary">
+                                        Показать
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                        {% if error %}
+                            <hr>
+                            <div class="alert alert-danger">
+                                {{ error }}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    {% for curr in info %}
+                    <div class="card col-6">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ curr.title }}</h5>
+                            <p class="card-text">
+                                {{ curr.numbers.value }} р.
+
+                                {% if curr.numbers.is_up == true %}
+                                <span class="badge badge-success">
+                                    &#9650;
+                                    {{ curr.numbers.changed }}
+                                </span>
+                                {% else %}
+                                <span class="badge badge-danger">
+                                    &#9660;
+                                    {{ curr.numbers.changed }}
+                                </span>
+                                {% endif %}
+                            </p>
+                      </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
